@@ -68,6 +68,13 @@ ROBOTSTXT_OBEY = True
 #    'task3.pipelines.Task3Pipeline': 300,
 #}
 
+ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
+IMAGES_STORE = './img'
+# IMAGES_THUMBS = {
+#     'small': (50, 50),
+#     'big': (260, 260),
+# }
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
