@@ -11,11 +11,11 @@ class ImgSpider(Spider):
         # 이미지 객체 준비
         item = ScrapyImgItem()
         img_urls = []
-        # 응답 HTML의 thumbs_list_frame id를 가진 요소가 부모인 모든 li 태그를 추출
-        for img in response.css("body > a[href^=\"../\"]"):  # css selector로 body의 a href="../"로 시작하는 태그들만 검색
+        # 부모가 body인 모든 a 태그 중 속성 중 ..으로 시작하는 태그 추출
+        # https://www.w3schools.com/cssref/css_selectors.asp
+        for img in response.css("body > a[href^=\"../\"]"):
             imgurl = img.css("a::attr(href)").extract_first()
-            imgurl = "http://licenseplatemania.com" + imgurl[2:]  # 페이지에 ../~~ 의 상대 주소로 적혀있기때문에 필요없는부분 잘라내고 절대적 주소로 변경
-            print(imgurl)
+            imgurl = 'http://licenseplatemania.com' + imgurl[2:]  # 상대 경로 대신 절대 경로로 변환
             img_urls.append(imgurl)
         item["image_urls"] = img_urls
         return item
