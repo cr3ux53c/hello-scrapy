@@ -69,7 +69,7 @@ ROBOTSTXT_OBEY = True
 #}
 
 ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
-IMAGES_STORE = './img'
+IMAGES_STORE = 'img'
 # IMAGES_THUMBS = {
 #     'small': (50, 50),
 #     'big': (260, 260),
